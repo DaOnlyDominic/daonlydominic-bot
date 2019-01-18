@@ -30,7 +30,7 @@ async def on_message(message):
         if message.content.startswith('bot.joke'):
             rand = random.randint(0,1)
             client.send_message(message.channel, jokes[rand])
-            async def on_messge(message):
+            async def on_message(message):
                 if message.author != client.user:
                     if what in message.content:
                         await client.send_message(message.channel, answers[rand])
