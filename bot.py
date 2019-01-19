@@ -1,10 +1,9 @@
 import discord
 import os
-import random
+import pyjokes
+
 
 client = discord.Client()
-jokes = ["What do you call a dull pencil?", "What do you call a cow with no legs?", "", "", ""]
-answers = ["Pointless!", "Ground beef!", "", "", ""]
 what = "what"
 
 @client.event
@@ -28,13 +27,9 @@ async def on_message(message):
 async def on_message(message):
     if message.author != client.user:
         if message.content.startswith('bot.joke'):
-            rand = random.randint(0,1)
-            client.send_message(message.channel, jokes[rand])
-            async def on_message(message):
-                if message.author != client.user:
-                    if what in message.content:
-                        await client.send_message(message.channel, answers[rand])
-                        await client.send_message(message.channel, 'HAHAHAHA!!')
+            msg = pyjokes.get_joke().format(message)
+            await client.send_message(message.channel, msg)
+            
             
 
 token = os.environ.get("DISCORD_BOT_SECRET")
