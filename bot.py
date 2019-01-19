@@ -2,9 +2,7 @@ import discord
 import os
 import pyjokes
 
-
 client = discord.Client()
-what = "what"
 
 @client.event
 async def on_ready():
