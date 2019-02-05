@@ -39,6 +39,17 @@ async def on_message(message):
       num = random.randint(0,10)
       msg = links[num]
       await client.send_message(message.channel, msg)
+      
+@client.event
+async def on_message(message):
+  if message.author != client.user:
+    if message.content.startswith('bot.spam'):
+      def bb:
+        aa()
+      def aa:
+        async client.send_message(message.channel, "SPAM!!")
+        bb()
+      
 
 token = os.environ.get("DISCORD_BOT_SECRET")
 client.run(token)
